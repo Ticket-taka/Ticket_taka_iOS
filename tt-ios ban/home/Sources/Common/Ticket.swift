@@ -20,4 +20,5 @@ struct Ticket {
     let description: String
     let date: String
     let move: Bool
+    let dateColor: UIColor
 }

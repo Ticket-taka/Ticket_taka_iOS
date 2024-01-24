@@ -17,52 +17,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions)
     {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
-        let mainViewController = HomeViewController() // 맨 처음 보여줄 ViewController
+            
+        let window = UIWindow(windowScene: windowScene)
+        let tabBarVC = UITabBarController()
+            
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        let teamVC = UINavigationController(rootViewController: TeamViewController())
+        let calendarVC = UINavigationController(rootViewController: MyCalendarViewController())
+        let myVC = UINavigationController(rootViewController: MyPageViewController())
         
-        window?.rootViewController = mainViewController
-        window?.makeKeyAndVisible()
+        tabBarVC.setViewControllers([homeVC, teamVC, calendarVC, myVC], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.tabBar.backgroundColor = .white
+        tabBarVC.tabBar.tintColor = UIColor(named: "활성화 테두리")
+        tabBarVC.tabBar.unselectedItemTintColor = .gray
         
-        let firstViewController = UINavigationController(rootViewController: HomeViewController())//ListViewController() 로 수정
-        let secondViewController = UINavigationController(rootViewController: TeamViewController())//ListViewController() 로 수정
-        let thirdViewController = UINavigationController(rootViewController: HomeViewController())//ListViewController() 로 수정
-        let fourthViewController = UINavigationController(rootViewController: MyPageViewController())
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([firstViewController, secondViewController, thirdViewController, fourthViewController], animated: true)
-        tabBarController.tabBar.backgroundColor = .white
+        homeVC.title = "홈"
+        teamVC.title = "팀"
+        calendarVC.title = "캘린더"
+        myVC.title = "마이"
         
-        if let items = tabBarController.tabBar.items {
-            if let mainColor = UIColor(named: "활성화 테두리"){
-                let iconSize = CGSize(width: 25, height: 25) // 원하는 이미지 크기
-                let configuration = UIImage.SymbolConfiguration(pointSize: iconSize.width, weight: .medium)
-                
-                items[0].selectedImage = UIImage(named: "icon_home")?.withTintColor(mainColor, renderingMode: .alwaysOriginal)
-                items[0].image = UIImage(named: "icon_home")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-                items[0].title = "홈"
-                items[0].setTitleTextAttributes([.foregroundColor: mainColor], for: .selected)
-                
-                items[1].selectedImage = UIImage(named: "icon_team")?.withTintColor(mainColor, renderingMode: .alwaysOriginal)
-                items[1].image = UIImage(named: "icon_team")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-                items[1].title = "팀"
-                items[1].setTitleTextAttributes([.foregroundColor: mainColor], for: .selected)
-                
-                items[2].selectedImage = UIImage(named: "icon_calendar")?.withTintColor(mainColor, renderingMode: .alwaysOriginal)
-                items[2].image = UIImage(named: "icon_calendar")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-                items[2].title = "캘린더"
-                items[2].setTitleTextAttributes([.foregroundColor: mainColor], for: .selected)
-                
-                items[3].selectedImage = UIImage(named: "icon_my")?.withTintColor(mainColor, renderingMode: .alwaysOriginal)
-                items[3].image = UIImage(named: "icon_my")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
-                items[3].title = "마이"
-                items[3].setTitleTextAttributes([.foregroundColor: mainColor], for: .selected)
-                
-            }
-        }
-        let rootViewController = UINavigationController(rootViewController: tabBarController)
-        rootViewController.setNavigationBarHidden(true, animated: false)
-        window?.rootViewController = rootViewController
+        guard let items = tabBarVC.tabBar.items else { return }
+        items[0].image = UIImage(named: "icon_home")
+        items[1].image = UIImage(named: "icon_team")
+        items[2].image = UIImage(named: "icon_calendar")
+        items[3].image = UIImage(named: "icon_my")
         
-        window?.makeKeyAndVisible()
+        window.rootViewController = tabBarVC
+        window.makeKeyAndVisible()
+        
+        self.window = window
     }
     
 }

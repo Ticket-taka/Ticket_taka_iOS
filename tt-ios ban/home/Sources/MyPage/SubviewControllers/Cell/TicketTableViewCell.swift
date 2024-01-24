@@ -220,6 +220,7 @@ extension TicketTableViewController {
             statusLabel.text = ticket.status.rawValue
             
             dateLabel.text = ticket.date
+            dateLabel.textColor = ticket.dateColor
             
             moveIcon.isHidden = !ticket.move
         }

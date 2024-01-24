@@ -19,32 +19,37 @@ final class MyPageViewController: BaseViewController {
                                                     name: "DD-2",
                                                     description: "화면설계서 수정",
                                                     date: "11/11",
-                                                    move: false),
+                                                    move: false,
+                                                    dateColor: .black),
                                              Ticket(status: .inProgress,
                                                     color: UIColor(hexCode: "54FFF3"),
                                                     name: "DD-2",
                                                     description: "화면설계서 수정",
                                                     date: "11/11",
-                                                    move: true),
+                                                    move: true,
+                                                    dateColor: .black),
                                              Ticket(status: .toDo,
                                                     color: UIColor(hexCode: "49A0A0"),
                                                     name: "TT-3",
                                                     description: "회의록 전달",
                                                     date: "11/13",
-                                                    move: false)]
+                                                    move: false,
+                                                    dateColor: .black)]
     
     private var sentTickets: [Ticket] = [Ticket(status: .inProgress,
                                                 color: UIColor(hexCode: "6361FF"),
                                                 name: "DD-2",
                                                 description: "화면설계서 수정",
                                                 date: "11/10",
-                                                move: false),
+                                                move: false,
+                                                dateColor: .black),
                                          Ticket(status: .toDo,
                                                 color: UIColor(hexCode: "54FFF3"),
                                                 name: "DD-2",
                                                 description: "화면설계서 수정",
                                                 date: "11/20",
-                                                move: false)]
+                                                move: false,
+                                                dateColor: .black)]
     
     // MARK: - Property
     

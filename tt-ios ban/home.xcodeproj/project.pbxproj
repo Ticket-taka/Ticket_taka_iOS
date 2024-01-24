@@ -80,7 +80,19 @@
 		DCCE396A2B53DE4900344C44 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCE39642B53DE4900344C44 /* Inter-Medium.otf */; };
 		DCCE396B2B53DE4900344C44 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCE39652B53DE4900344C44 /* SF-Pro-Display-Semibold.otf */; };
 		DCCE396C2B53DE4900344C44 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCE39662B53DE4900344C44 /* Inter-SemiBold.otf */; };
-		DCCE396E2B53DE7B00344C44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE396D2B53DE7B00344C44 /* HomeViewController.swift */; };
+		DCCE39B52B5D687F00344C44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39AE2B5D687F00344C44 /* HomeViewController.swift */; };
+		DCCE39B62B5D687F00344C44 /* HomeViewController+ImminentTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39B02B5D687F00344C44 /* HomeViewController+ImminentTicketView.swift */; };
+		DCCE39B72B5D687F00344C44 /* HomeViewController+TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39B12B5D687F00344C44 /* HomeViewController+TopView.swift */; };
+		DCCE39B82B5D687F00344C44 /* HomeViewController+RecentProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39B22B5D687F00344C44 /* HomeViewController+RecentProjectView.swift */; };
+		DCCE39BE2B5D688900344C44 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39BB2B5D688900344C44 /* AlarmViewController.swift */; };
+		DCCE39BF2B5D688A00344C44 /* AlarmViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39BD2B5D688900344C44 /* AlarmViewCell.swift */; };
+		DCCE39C92B5EC61200344C44 /* RecentProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39C82B5EC61200344C44 /* RecentProjectCollectionViewCell.swift */; };
+		DCCE39CE2B5FB76200344C44 /* CalendarViewController+TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39CD2B5FB76200344C44 /* CalendarViewController+TopView.swift */; };
+		DCCE39D02B5FE17900344C44 /* CalendarViewController+MyCalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39CF2B5FE17900344C44 /* CalendarViewController+MyCalenderView.swift */; };
+		DCCE39D52B5FF32C00344C44 /* MyCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39D42B5FF32C00344C44 /* MyCalendarViewController.swift */; };
+		DCCE39D72B5FF36600344C44 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39D62B5FF36600344C44 /* CalendarViewController.swift */; };
+		DCCE39DA2B5FF3E300344C44 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39D92B5FF3E300344C44 /* CalendarCollectionViewCell.swift */; };
+		DCCE39DC2B60E93C00344C44 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCE39DB2B60E93C00344C44 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,7 +160,19 @@
 		DCCE39642B53DE4900344C44 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		DCCE39652B53DE4900344C44 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		DCCE39662B53DE4900344C44 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
-		DCCE396D2B53DE7B00344C44 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DCCE39AE2B5D687F00344C44 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DCCE39B02B5D687F00344C44 /* HomeViewController+ImminentTicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+ImminentTicketView.swift"; sourceTree = "<group>"; };
+		DCCE39B12B5D687F00344C44 /* HomeViewController+TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TopView.swift"; sourceTree = "<group>"; };
+		DCCE39B22B5D687F00344C44 /* HomeViewController+RecentProjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+RecentProjectView.swift"; sourceTree = "<group>"; };
+		DCCE39BB2B5D688900344C44 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		DCCE39BD2B5D688900344C44 /* AlarmViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewCell.swift; sourceTree = "<group>"; };
+		DCCE39C82B5EC61200344C44 /* RecentProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCCE39CD2B5FB76200344C44 /* CalendarViewController+TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+TopView.swift"; sourceTree = "<group>"; };
+		DCCE39CF2B5FE17900344C44 /* CalendarViewController+MyCalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarViewController+MyCalenderView.swift"; sourceTree = "<group>"; };
+		DCCE39D42B5FF32C00344C44 /* MyCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCalendarViewController.swift; sourceTree = "<group>"; };
+		DCCE39D62B5FF36600344C44 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		DCCE39D92B5FF3E300344C44 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCCE39DB2B60E93C00344C44 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +433,7 @@
 				A5BC7B6B2B5C165900F870FF /* IconControlComponent.swift */,
 				BAEBA21C2B56A9020008E787 /* TooltipView.swift */,
 				A5661E992B5A984700E49232 /* PaddedButton.swift */,
+				DCCE39DB2B60E93C00344C44 /* Notification.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -479,6 +504,8 @@
 			children = (
 				BAEBA21B2B56A8FC0008E787 /* Common */,
 				BAEBA2052B5684870008E787 /* Base */,
+				DCCE39AD2B5D687F00344C44 /* Home */,
+				DCCE39BA2B5D688900344C44 /* Alarm */,
 				BA0872D82B56C53900EBB33F /* NewTeam */,
 				BAEBA2362B56B1D50008E787 /* TeamInvite */,
 				BAEBA1FF2B5682F40008E787 /* Team */,
@@ -487,9 +514,98 @@
 				A5B80FBA2B5AECA300E0451C /* ChangePassword */,
 				A5B80FC02B5AFE5A00E0451C /* TeamSpace */,
 				A5BC7B6D2B5C18AA00F870FF /* MemberInvite */,
-				DCCE396D2B53DE7B00344C44 /* HomeViewController.swift */,
+				DCCE39C02B5D689000344C44 /* Calendar */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		DCCE39AD2B5D687F00344C44 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39C32B5E5A1400344C44 /* SubviewControllers */,
+				DCCE39AF2B5D687F00344C44 /* Subviews */,
+				DCCE39B32B5D687F00344C44 /* Cell */,
+				DCCE39AE2B5D687F00344C44 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DCCE39AF2B5D687F00344C44 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39B12B5D687F00344C44 /* HomeViewController+TopView.swift */,
+				DCCE39B22B5D687F00344C44 /* HomeViewController+RecentProjectView.swift */,
+				DCCE39B02B5D687F00344C44 /* HomeViewController+ImminentTicketView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		DCCE39B32B5D687F00344C44 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39C82B5EC61200344C44 /* RecentProjectCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DCCE39BA2B5D688900344C44 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39BC2B5D688900344C44 /* Cell */,
+				DCCE39BB2B5D688900344C44 /* AlarmViewController.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		DCCE39BC2B5D688900344C44 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39BD2B5D688900344C44 /* AlarmViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DCCE39C02B5D689000344C44 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39D32B5FF30200344C44 /* SubViewController */,
+				DCCE39CC2B5FB74C00344C44 /* Subviews */,
+				DCCE39D82B5FF3CA00344C44 /* Cell */,
+				DCCE39D42B5FF32C00344C44 /* MyCalendarViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		DCCE39C32B5E5A1400344C44 /* SubviewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubviewControllers;
+			sourceTree = "<group>";
+		};
+		DCCE39CC2B5FB74C00344C44 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39CD2B5FB76200344C44 /* CalendarViewController+TopView.swift */,
+				DCCE39CF2B5FE17900344C44 /* CalendarViewController+MyCalenderView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		DCCE39D32B5FF30200344C44 /* SubViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39D62B5FF36600344C44 /* CalendarViewController.swift */,
+			);
+			path = SubViewController;
+			sourceTree = "<group>";
+		};
+		DCCE39D82B5FF3CA00344C44 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DCCE39D92B5FF3E300344C44 /* CalendarCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,10 +717,12 @@
 				A5B80FC22B5AFE7200E0451C /* TeamSpaceViewController.swift in Sources */,
 				A5B80FC42B5B076F00E0451C /* TeamSpaceViewController+TeamMemberStackView.swift in Sources */,
 				A5B80FB92B5AE41E00E0451C /* PopupViewController.swift in Sources */,
+				DCCE39DC2B60E93C00344C44 /* Notification.swift in Sources */,
 				A5BC7B772B5C272E00F870FF /* SelectIconColorViewController+ColorCollectionViewCell.swift in Sources */,
 				BAEBA2012B5683080008E787 /* TeamViewController.swift in Sources */,
 				A5BC7B7B2B5C283600F870FF /* UICollectionView+Extension.swift in Sources */,
 				DCCE394C2B53DDCA00344C44 /* SceneDelegate.swift in Sources */,
+				DCCE39B52B5D687F00344C44 /* HomeViewController.swift in Sources */,
 				A5BC7B822B5C4DA100F870FF /* TeamSpaceViewController+ProjectCollectionViewCell.swift in Sources */,
 				BAEBA2072B5684AE0008E787 /* BaseView.swift in Sources */,
 				A5B80FAB2B5AC1A500E0451C /* EditUserInfoViewController+TextField.swift in Sources */,
@@ -616,12 +734,18 @@
 				BAEBA2152B56A08F0008E787 /* BaseControl.swift in Sources */,
 				A5BC7B7D2B5C384F00F870FF /* BaseCollectionReusableView.swift in Sources */,
 				A5B80FB32B5AD15E00E0451C /* EditUserInfoViewController+ChangePasswordButton.swift in Sources */,
+				DCCE39D52B5FF32C00344C44 /* MyCalendarViewController.swift in Sources */,
 				A5661E902B5A819700E49232 /* Ticket.swift in Sources */,
+				DCCE39CE2B5FB76200344C44 /* CalendarViewController+TopView.swift in Sources */,
 				A5661E982B5A8D7200E49232 /* IconComponent.swift in Sources */,
 				BA0872D72B56B60100EBB33F /* TeamInviteViewController+InviteCell.swift in Sources */,
+				DCCE39D02B5FE17900344C44 /* CalendarViewController+MyCalenderView.swift in Sources */,
 				A56D41FF2B5CFE0D0045E5F3 /* TicketTableViewController.swift in Sources */,
+				DCCE39B82B5D687F00344C44 /* HomeViewController+RecentProjectView.swift in Sources */,
 				A5B80FA82B5ABB9300E0451C /* EditUserInfoViewController.swift in Sources */,
-				DCCE396E2B53DE7B00344C44 /* HomeViewController.swift in Sources */,
+				DCCE39BE2B5D688900344C44 /* AlarmViewController.swift in Sources */,
+				DCCE39BF2B5D688A00344C44 /* AlarmViewCell.swift in Sources */,
+				DCCE39B72B5D687F00344C44 /* HomeViewController+TopView.swift in Sources */,
 				BA0872DF2B56C8F700EBB33F /* NewTeamViewController+TextField.swift in Sources */,
 				BAEBA21D2B56A9020008E787 /* TooltipView.swift in Sources */,
 				A5661E9C2B5AA29C00E49232 /* MyPageViewController+SelectionView.swift in Sources */,
@@ -631,16 +755,20 @@
 				BAEBA2092B5684B70008E787 /* BaseViewController.swift in Sources */,
 				A5661E852B5A685200E49232 /* MyPageViewController.swift in Sources */,
 				A5BC7B722B5C1BB800F870FF /* MemberInviteViewController+TextField.swift in Sources */,
+				DCCE39D72B5FF36600344C44 /* CalendarViewController.swift in Sources */,
 				A5BC7B6C2B5C165900F870FF /* IconControlComponent.swift in Sources */,
+				DCCE39DA2B5FF3E300344C44 /* CalendarCollectionViewCell.swift in Sources */,
 				BAEBA2172B56A4D50008E787 /* TeamViewController+CreateTeamButtonView.swift in Sources */,
 				A5661E8C2B5A7ABE00E49232 /* TicketTableViewCell.swift in Sources */,
 				A5661E962B5A8AF900E49232 /* MyPageViewController+UserInfoView.swift in Sources */,
+				DCCE39B62B5D687F00344C44 /* HomeViewController+ImminentTicketView.swift in Sources */,
 				A5BC7B682B5BDD9D00F870FF /* SelectIconColorViewController.swift in Sources */,
 				BAEBA2382B56B1E90008E787 /* TeamInviteViewController.swift in Sources */,
 				A5BC7B6A2B5C00B400F870FF /* TeamSpaceViewController+ProfileComponentView.swift.swift in Sources */,
 				A5661E922B5A82FF00E49232 /* UIColor+.swift in Sources */,
 				BA0872DA2B56C54B00EBB33F /* NewTeamViewController.swift in Sources */,
 				BAEBA2042B56844F0008E787 /* TeamViewController+TopView.swift in Sources */,
+				DCCE39C92B5EC61200344C44 /* RecentProjectCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
