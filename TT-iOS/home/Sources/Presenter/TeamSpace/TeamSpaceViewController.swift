@@ -89,7 +89,7 @@ final class TeamSpaceViewController: BaseViewController {
     private var calendarButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(named: "icon_calendar"), for: .normal)
-        view.tintColor = UIColor(named: "활성화 테두리")
+        view.backgroundColor = UIColor(named: "활성화 테두리")
         return view
     }()
     

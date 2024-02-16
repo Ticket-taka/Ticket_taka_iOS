@@ -92,28 +92,32 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: - Appearance
 private extension CalendarDateCollectionViewCell {
     
     func updateSelectionStatus() {
         guard let day = day else { return }
-        
-        // 각 티켓별 최대 오프셋 계산
-        tickets.forEach { ticket in
-            var numOfOtherTicket = 0
-            for otherTicket in tickets {
-                if otherTicket.code == ticket.code {break} //현재 체크중인 티켓일 때까지
                 
-                for dayOffset in 0...(Int(ticket.dueDate.timeIntervalSince(ticket.startDate)) / (60 * 60 * 24)) {
-                    let date = ticket.startDate.addingTimeInterval(Double(dayOffset) * 60 * 60 * 24)
-                    if !(date <= otherTicket.startDate || otherTicket.dueDate <= date) {
-                        numOfOtherTicket += 1
-                        break
-                    }
-                }
+        var ticketOffset: [String : Int] = [:]
+        var currentOffset = 10
+        
+        
+        contentView.subviews.forEach { subview in
+            if subview.tag == 100 {
+                subview.removeFromSuperview()
             }
+        }
+        
+        // 티켓 해당 날짜에 대한 뷰 추가
+        for ticket in tickets {
+            
             if ticket.startDate <= day.date && day.date <= ticket.dueDate {
-                addTicketView(for: ticket, withOffset: 10 * ( numOfOtherTicket + 1 ))
+                if let offset = ticketOffset[ticket.code] {
+                    addTicketView(for: ticket, withOffset: offset)
+                } else {
+                    ticketOffset[ticket.code] = currentOffset
+                    addTicketView(for: ticket, withOffset: currentOffset)
+                    currentOffset += 10
+                }
             }
         }
         
@@ -129,10 +133,12 @@ private extension CalendarDateCollectionViewCell {
         let ticketView = UIView()
         ticketView.backgroundColor = ticket.color
         ticketView.translatesAutoresizingMaskIntoConstraints = false
+        ticketView.tag = 100 // Tag to identify ticket views
+        
         contentView.addSubview(ticketView)
         
         ticketView.snp.makeConstraints { make in
-            make.top.equalTo(currentDateBackgroundView.snp.bottom).offset(offset)
+            make.top.equalTo(currentDateBackgroundView.snp.bottom).offset(2 + offset)
             make.centerX.equalToSuperview()
             make.width.equalTo(50)
             make.height.equalTo(5)
@@ -140,20 +146,20 @@ private extension CalendarDateCollectionViewCell {
     }
     
     func applySelectedStyle() {
-        accessibilityTraits.insert(.selected)
-        accessibilityHint = nil
-        currentDateBackgroundView.isHidden = false
-        numberLabel.textColor = .white
-        selectionBackgroundView.isHidden = true
-    }
-    
-    func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
-        accessibilityTraits.remove(.selected)
-        accessibilityHint = "Tap to select"
+            accessibilityTraits.insert(.selected)
+            accessibilityHint = nil
+            currentDateBackgroundView.isHidden = false
+            numberLabel.textColor = .white
+            selectionBackgroundView.isHidden = true
+        }
         
-        //선택하지 않은 날짜들과 이전달+다음달 날짜들 default color
-        numberLabel.textColor = isWithinDisplayedMonth ? .label : .secondaryLabel
-        selectionBackgroundView.isHidden = true
-        currentDateBackgroundView.isHidden = true
-    }
+        func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
+            accessibilityTraits.remove(.selected)
+            accessibilityHint = "Tap to select"
+            
+            //선택하지 않은 날짜들과 이전달+다음달 날짜들 default color
+            numberLabel.textColor = isWithinDisplayedMonth ? .label : .secondaryLabel
+            selectionBackgroundView.isHidden = true
+            currentDateBackgroundView.isHidden = true
+        }
 }

@@ -381,6 +381,8 @@ extension MyCalendarViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
+// MARK: - UITableViewDelegate
 extension MyCalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tickets.count
