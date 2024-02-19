@@ -15,6 +15,9 @@ final class TimelineSubViewController: BaseViewController {
     // MARK: - Property
     
     private let disposeBag = DisposeBag()
+    private var tickets: [Ticket] = Ticket.dummy
+    private var TT_tickets: [Ticket] = []
+    var selectedCellText: String = ""
     
     // MARK: - View
     
@@ -36,7 +39,7 @@ final class TimelineSubViewController: BaseViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "타임라인 1"
+        label.text = "프로젝트 1입니다."
         label.numberOfLines = 0
         label.font = UIFont(name: "SFProDisplay-Semibold", size: 27)
         return label
@@ -56,27 +59,38 @@ final class TimelineSubViewController: BaseViewController {
         view.backgroundColor = UIColor(named: "Cool gray 5")
         return view
     }()
-    
+
     private lazy var createTicketButton: UIButton = {
        let view = UIButton()
         view.setImage(UIImage(named: "createTicket"), for: .normal)
         return view
     }()
     
+    private lazy var timelineTicketTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isScrollEnabled = false
+        tableView.register(TimelineTicketTableViewCell.self)
+        tableView.sectionHeaderHeight = 2
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        return tableView
+    }()
+    
     
     
     // MARK: - Bind
-
+    
     override func bind() {
         super.bind()
         
         createTicketButton.rx
             .controlEvent(.touchUpInside)
-                .bind(with: self) { owner, _ in
-                    owner.navigationController?.pushViewController(CreateTicketViewController(), animated: true)
-
-                }
-                .disposed(by: disposeBag)
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(CreateTicketViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     
@@ -85,7 +99,16 @@ final class TimelineSubViewController: BaseViewController {
     override func setUp() {
         super.setUp()
         view.backgroundColor = .white
-
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //titleLabel.text = selectedCellText
+        for ticket in tickets {
+            if ticket.code.hasPrefix("TT") { //특정 프로젝트 확인
+                TT_tickets.append(ticket)
+            }
+        }
     }
     
     override func initView() {
@@ -95,11 +118,15 @@ final class TimelineSubViewController: BaseViewController {
         }
         scrollview.addSubview(contentView)
         contentView.addSubview(timelineView)
+        contentView.addSubview(timelineTicketTableView)
 
     }
     
     override func initConstraint() {
         super.initConstraint()
+        
+        timelineView.translatesAutoresizingMaskIntoConstraints = false
+        timelineTicketTableView.translatesAutoresizingMaskIntoConstraints = false
         
         backButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(10)
@@ -132,16 +159,20 @@ final class TimelineSubViewController: BaseViewController {
         
         contentView.snp.makeConstraints { make in
             make.width.equalTo(view.snp.width)
-            make.height.equalTo(1000)
+            make.height.equalTo(2000)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
 
         timelineView.snp.makeConstraints { make in
-            make.top.equalTo(dividerView.snp.bottom)
+            make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(40)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.width.equalTo(3)
+        }
+        
+        timelineTicketTableView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(50)
         }
         
         createTicketButton.snp.makeConstraints { make in
@@ -149,5 +180,27 @@ final class TimelineSubViewController: BaseViewController {
             make.size.equalTo(60)
         }
         
+    }
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension TimelineSubViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return TT_tickets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let ticket = TT_tickets[indexPath.row]
+        return TimelineTicketTableViewCell.makeCell(to: tableView, indexPath: indexPath, ticket: ticket)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt: IndexPath) -> CGFloat {
+        return 110
+    }
+    
+    func tableView(_ tableView: UITableView, widthForRowAt: IndexPath) -> CGFloat {
+        return 60
     }
 }

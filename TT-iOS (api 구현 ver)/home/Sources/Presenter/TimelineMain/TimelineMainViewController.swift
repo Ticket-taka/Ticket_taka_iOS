@@ -290,7 +290,9 @@ extension TimelineMainViewController: UITableViewDelegate, UITableViewDataSource
             cell?.selected()
             cellSelected(tableView)
         } else {
+            let cell = tableView.cellForRow(at: indexPath) as? TimelineTableViewCell
             let newViewController = TimelineSubViewController()
+            newViewController.selectedCellText = cell?.titleLabel.text ?? ""
             navigationController?.pushViewController(newViewController, animated: true)
         }
     }

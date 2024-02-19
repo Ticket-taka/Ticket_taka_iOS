@@ -195,6 +195,7 @@
 		BAEBA2382B56B1E90008E787 /* TeamInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBA2372B56B1E90008E787 /* TeamInviteViewController.swift */; };
 		DC1823E62B70C10B0015D661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC1823E52B70C10B0015D661 /* GoogleService-Info.plist */; };
 		DC1823E72B70C10B0015D661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC1823E52B70C10B0015D661 /* GoogleService-Info.plist */; };
+		DC343D4B2B8383BC0091329A /* TimelineTIcketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC343D4A2B8383BC0091329A /* TimelineTIcketTableViewCell.swift */; };
 		DC6C22702B70C9E0000090C9 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C226F2B70C9E0000090C9 /* RxCocoa */; };
 		DC6C22882B70CB90000090C9 /* ProjectEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C22812B70CB90000090C9 /* ProjectEditViewController.swift */; };
 		DC6C22892B70CB90000090C9 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C22832B70CB90000090C9 /* Link.swift */; };
@@ -448,6 +449,7 @@
 		BAEBA21C2B56A9020008E787 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		BAEBA2372B56B1E90008E787 /* TeamInviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInviteViewController.swift; sourceTree = "<group>"; };
 		DC1823E52B70C10B0015D661 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC343D4A2B8383BC0091329A /* TimelineTIcketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTIcketTableViewCell.swift; sourceTree = "<group>"; };
 		DC6C22812B70CB90000090C9 /* ProjectEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEditViewController.swift; sourceTree = "<group>"; };
 		DC6C22832B70CB90000090C9 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		DC6C22842B70CB90000090C9 /* Achievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
@@ -1168,6 +1170,14 @@
 			path = TeamInvite;
 			sourceTree = "<group>";
 		};
+		DC343D492B8383A90091329A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DC343D4A2B8383BC0091329A /* TimelineTIcketTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DC6C227D2B70CB4F000090C9 /* TimelineMain */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,6 +1240,7 @@
 		DC6E53FD2B714A0A004DFB23 /* TimelineSub */ = {
 			isa = PBXGroup;
 			children = (
+				DC343D492B8383A90091329A /* Cell */,
 				DC6E53FE2B715165004DFB23 /* TimelineSubViewController.swift */,
 			);
 			path = TimelineSub;
@@ -1693,6 +1704,7 @@
 				A5BC7B742B5C1C2100F870FF /* MemberInviteViewController+NewInviteMemberButton.swift in Sources */,
 				DC6C22882B70CB90000090C9 /* ProjectEditViewController.swift in Sources */,
 				A552F1EB2B700BB900041192 /* SignInViewController+MaintainButton.swift in Sources */,
+				DC343D4B2B8383BC0091329A /* TimelineTIcketTableViewCell.swift in Sources */,
 				A58D113A2B6F8D8A004AE653 /* TicketInfoContentContainer.swift in Sources */,
 				DC7A95E52B7656FC006F8ED1 /* MyCalendarViewController.swift in Sources */,
 				A58D11362B6F5D92004AE653 /* TicketContentContainer.swift in Sources */,
@@ -1869,7 +1881,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Ticket Taka/Ticket Taka.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XVTBTTTFN;
+				DEVELOPMENT_TEAM = Y63SPPWMGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Ticket Taka/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Ticket Taka";
@@ -1896,7 +1908,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Ticket Taka/Ticket Taka.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XVTBTTTFN;
+				DEVELOPMENT_TEAM = Y63SPPWMGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Ticket Taka/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Ticket Taka";

@@ -885,6 +885,15 @@
 			path = TeamInvite;
 			sourceTree = "<group>";
 		};
+		DC343D482B7F8B2E0091329A /* CreateProject */ = {
+			isa = PBXGroup;
+			children = (
+				DC78DAB32B71122F00771363 /* Subview */,
+				DC6C229D2B70CC10000090C9 /* ProjectCreateViewController.swift */,
+			);
+			path = CreateProject;
+			sourceTree = "<group>";
+		};
 		DC6C227D2B70CB4F000090C9 /* TimelineMain */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,15 +942,6 @@
 				DC78DABE2B71276100771363 /* ProgressBar.swift */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		DC6C229C2B70CC10000090C9 /* ProjectCreate */ = {
-			isa = PBXGroup;
-			children = (
-				DC78DAB32B71122F00771363 /* Subview */,
-				DC6C229D2B70CC10000090C9 /* ProjectCreateViewController.swift */,
-			);
-			path = ProjectCreate;
 			sourceTree = "<group>";
 		};
 		DC6E53FD2B714A0A004DFB23 /* TimelineSub */ = {
@@ -1046,8 +1046,8 @@
 				DC7A96112B7BEDC0006F8ED1 /* CreateTimeline */,
 				DC7A961B2B7BF6AF006F8ED1 /* CreateTicket */,
 				A5BC7B6D2B5C18AA00F870FF /* MemberInvite */,
-				DC6C229C2B70CC10000090C9 /* ProjectCreate */,
 				DC6C22802B70CB90000090C9 /* Project */,
+				DC343D482B7F8B2E0091329A /* CreateProject */,
 				DC7A95D62B7349F7006F8ED1 /* MyCalendar */,
 				A5661E832B5A683E00E49232 /* MyPage */,
 				A5B80FAE2B5ACD3100E0451C /* EditUserInfo */,
