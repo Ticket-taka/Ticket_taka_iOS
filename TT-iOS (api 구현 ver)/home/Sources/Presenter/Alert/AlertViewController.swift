@@ -15,7 +15,7 @@ final class AlertViewController: BaseViewController {
     
     // MARK: - Test Data
     
-    private var alerts: [Alert] = Alert.dummy
+    var alerts: [Alert] = Alert.dummy
     
     // MARK: - Property
     

@@ -36,6 +36,7 @@ class TeamItemTableViewCell: BaseTableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Test 입니다."
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 18)
         label.textColor = UIColor(named: "서브 텍스트 1")
         
         return label

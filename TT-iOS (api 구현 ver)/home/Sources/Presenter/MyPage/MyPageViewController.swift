@@ -31,8 +31,17 @@ final class MyPageViewController: BaseViewController {
         BannerView()
     }()
     
-    private var alarmButton: UIImageView = {
-        UIImageView(image: UIImage(named: "alarm"))
+    private lazy var alarmButton: UIButton = {
+        let button = UIButton(primaryAction: UIAction(handler: { _ in
+            self.navigationController?.pushViewController(AlertViewController(), animated: true)}))
+        button.setImage(UIImage(named: "alarm"), for: .normal)
+        button.tintColor = UIColor(named: "활성화 테두리")
+        return button
+    }()
+    
+    private lazy var toolTipView: TooltipView = {
+        var viewController = AlertViewController()
+        return TooltipView(text: "읽지 않은 알림이 \(AlertViewController().alerts.count)개 있어요!")
     }()
     
     private var userInfoView: UserInfoView = {
@@ -108,6 +117,7 @@ final class MyPageViewController: BaseViewController {
         super.initView()
         
         bannerView.addSubview(alarmButton)
+        bannerView.addSubview(toolTipView)
         
         let subviews: [UIView] = [
             bannerView,
@@ -142,6 +152,11 @@ final class MyPageViewController: BaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(12)
             make.trailing.equalToSuperview().inset(19)
             make.size.equalTo(24)
+        }
+        
+        toolTipView.snp.makeConstraints { make in
+            make.trailing.equalTo(alarmButton.snp.leading).offset(-8)
+            make.centerY.equalTo(alarmButton)
         }
         
         mainContainerView.snp.makeConstraints { make in

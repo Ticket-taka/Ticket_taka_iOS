@@ -32,7 +32,7 @@ final class MyCalendarViewController: BaseViewController{
     
     private lazy var toolTipView: TooltipView = {
         var viewController = AlertViewController()
-        return TooltipView(text: "읽지 않은 알림이 2개 있어요!")
+        return TooltipView(text: "읽지 않은 알림이 \(AlertViewController().alerts.count)개 있어요!")
     }()
     
     let scrollView = UIScrollView ()

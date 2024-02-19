@@ -43,7 +43,7 @@ final class HomeViewController: BaseViewController {
     }()
     
     private lazy var toolTipView: TooltipView = {
-        TooltipView(text: "읽지 않은 알림이 2개 있어요!")
+        TooltipView(text: "읽지 않은 알림이 \(AlertViewController().alerts.count)개 있어요!")
     }()
     
     var alarmContainer: UIView = UIView()
@@ -142,10 +142,10 @@ final class HomeViewController: BaseViewController {
             make.leading.trailing.equalToSuperview()
         }
         
-        alarmContainer.snp.makeConstraints { make in
+        alarmButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(12)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(30)
+            make.trailing.equalToSuperview().inset(19)
+            make.size.equalTo(24)
         }
         
         alarmButton.snp.makeConstraints { make in

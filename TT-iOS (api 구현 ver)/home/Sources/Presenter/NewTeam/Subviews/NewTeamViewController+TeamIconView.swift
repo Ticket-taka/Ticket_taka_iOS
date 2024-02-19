@@ -15,16 +15,15 @@ extension NewTeamViewController {
         private lazy var titleLabel: UILabel = {
             let label = UILabel()
             label.text = "팀 아이콘"
-            
             return label
         }()
         
-        private lazy var defaultIconView: IconView = {
-            IconView(imageName: "icon_team", bgColor: UIColor(named: "Primary color")!, text: "기본")
+        lazy var defaultIconView: IconView = {
+            IconView(imageName: UIImage(named:"icon_team")!, bgColor: UIColor(named: "Primary color")!, text: "기본")
         }()
         
         lazy var addPhotoView: IconView = {
-            IconView(imageName: "icon_photo", bgColor: UIColor(named: "Cool gray 5")!, text: "사진 추가")
+            IconView(imageName: UIImage(named:"icon_photo")!, bgColor: UIColor(named: "Cool gray 5")!, text: "사진 추가")
         }()
         
         // MARK: - UI
@@ -43,7 +42,7 @@ extension NewTeamViewController {
             self.snp.makeConstraints { make in
                 make.bottom.equalTo(defaultIconView)
             }
-
+            
             titleLabel.snp.makeConstraints { make in
                 make.top.equalToSuperview()
                 make.leading.trailing.equalToSuperview()
@@ -67,7 +66,7 @@ extension NewTeamViewController {
         
         // MARK: - Property
         
-        var imageName: String? {
+        var imageName: UIImage? {
             didSet { update() }
         }
         var bgColor: UIColor? {
@@ -79,17 +78,22 @@ extension NewTeamViewController {
         
         // MARK: - View
         
-        private lazy var iconContainerView: UIView = {
+        lazy var iconContainerView: UIView = {
             // MARK: - RxSwift Bug, UIView is not handled
             let view = UIImageView()
             view.layer.borderWidth = 2
-            view.layer.borderColor = UIColor(named: "Point")?.cgColor
+            view.layer.borderColor = UIColor(named: "grey")?.cgColor//UIColor(named: "Point")?.cgColor
             view.layer.cornerRadius = 22
             view.layer.masksToBounds = true
             return view
         }()
         
-        private lazy var iconView: UIImageView = {
+        
+        lazy var iconView: UIImageView = {
+            UIImageView(image: UIImage(named: "icon_team"))
+        }()
+        
+        lazy var addIconView: UIImageView = {
             UIImageView(image: UIImage(named: "icon_team"))
         }()
         
@@ -102,7 +106,7 @@ extension NewTeamViewController {
         
         // MARK: - Init
         
-        convenience init(imageName: String, bgColor: UIColor, text: String) {
+        convenience init(imageName: UIImage, bgColor: UIColor, text: String) {
             defer {
                 self.imageName = imageName
                 self.bgColor = bgColor
@@ -119,8 +123,10 @@ extension NewTeamViewController {
             
             addSubview(iconContainerView)
             iconContainerView.addSubview(iconView)
-            
+            iconContainerView.addSubview(addIconView)
             addSubview(titleLabel)
+            
+            addIconView.isHidden = true
         }
         
         override func configureConstraints() {
@@ -130,7 +136,7 @@ extension NewTeamViewController {
                 make.leading.trailing.equalTo(iconContainerView)
                 make.bottom.equalTo(titleLabel)
             }
-        
+            
             iconContainerView.snp.makeConstraints { make in
                 make.top.equalToSuperview()
                 make.centerX.equalToSuperview()
@@ -140,6 +146,10 @@ extension NewTeamViewController {
             iconView.snp.makeConstraints { make in
                 make.center.equalToSuperview()
                 make.width.height.equalTo(24)
+            }
+            
+            addIconView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
             }
             
             titleLabel.snp.makeConstraints { make in
@@ -152,11 +162,8 @@ extension NewTeamViewController {
         
         override func update() {
             super.update()
-            
-            if let imageName {
-                iconContainerView.backgroundColor = bgColor
-                iconView.image = UIImage(named: imageName)
-            }
+            iconView.image = imageName
+            iconContainerView.backgroundColor = bgColor
             titleLabel.text = text
         }
     }

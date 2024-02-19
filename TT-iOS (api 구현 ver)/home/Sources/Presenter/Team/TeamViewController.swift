@@ -18,6 +18,7 @@ final class TeamViewController: BaseViewController {
     var topViewHeight: Constraint?
     var isCompleteLayout: Bool = false
     let disposeBag = DisposeBag()
+    var stringArr = [String]()
     
     // MARK: - View
     
@@ -25,11 +26,11 @@ final class TeamViewController: BaseViewController {
         TopView()
     }()
     
-    private lazy var layoutView: UITableView = {
+    lazy var layoutView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(TeamItemTableViewCell.self)
         view.rowHeight = UITableView.automaticDimension
-        
+        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -37,8 +38,12 @@ final class TeamViewController: BaseViewController {
         CreateTeamButtonView()
     }()
     
-    private lazy var alarmButton: UIImageView = {
-        UIImageView(image: UIImage(named: "alarm"))
+    private lazy var alarmButton: UIButton = {
+        let button = UIButton(primaryAction: UIAction(handler: { _ in
+            self.navigationController?.pushViewController(AlertViewController(), animated: true)}))
+        button.setImage(UIImage(named: "alarm"), for: .normal)
+        button.tintColor = UIColor(named: "활성화 테두리")
+        return button
     }()
     
     private lazy var inviteButton: InviteButton = {

@@ -16,6 +16,11 @@ final class NewTeamViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     private var addedTeamIconImage: UIImage? = nil
+    private var doneAdded = false
+    
+    private var defaultImageSelected = false
+    private var customImageSelected = false
+
     
     // MARK: - View
     
@@ -37,6 +42,7 @@ final class NewTeamViewController: BaseViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "새로운 팀을\n만들어 보세요."
+        label.font = UIFont(name: "SFProDisplay-Semibold", size: 27)
         label.textColor = .black
         label.numberOfLines = 0
         
@@ -70,12 +76,18 @@ final class NewTeamViewController: BaseViewController {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 11
-        
         return view
     }()
     
     private lazy var newTeamButton: NewTeamButtonView = {
         NewTeamButtonView()
+    }()
+    
+    private lazy var teamIconStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.spacing = 11
+        return view
     }()
     
     private lazy var teamIconView: TeamIconView = {
@@ -91,6 +103,14 @@ final class NewTeamViewController: BaseViewController {
         button.layer.masksToBounds = true
         
         return button
+    }()
+    private lazy var imagePicker: UIImagePickerController = {
+        let vc = UIImagePickerController()
+        //vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        return vc
     }()
     
     // MARK: - UI
@@ -199,17 +219,46 @@ final class NewTeamViewController: BaseViewController {
                 owner.navigationController?.popViewController(animated: true)
             }
             .disposed(by: disposeBag)
+        
+        teamIconView.defaultIconView.rx
+            .controlEvent(.touchUpInside)
+            .bind(with: self) { owner, _ in
+                    owner.checkdefaultView()
+            }
+            .disposed(by: disposeBag)
     
         teamIconView.addPhotoView.rx
             .controlEvent(.touchUpInside)
             .bind(with: self) { owner, _ in
-                owner.showAddTeamIconActionSheet()
+                if !self.doneAdded {
+                    owner.showAddTeamIconActionSheet()
+                }
+                else {
+                    owner.checkIconView()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        completeButton.rx
+            .controlEvent(.touchUpInside)
+            .bind(with: self) { owner, _ in
+                    owner.completeButtonTapped()
             }
             .disposed(by: disposeBag)
     }
 }
 
 extension NewTeamViewController {
+    
+    func didTabselectButtuon(){
+        let vc = UIImagePickerController()
+        //vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    
     func showAddTeamIconActionSheet() {
         let actionSheetController = UIAlertController()
         let actionCamera = UIAlertAction(title: "카메라",
@@ -227,7 +276,73 @@ extension NewTeamViewController {
         self.present(actionSheetController, animated: true)
     }
     
-    func openCameraAction(_ action: UIAlertAction) { }
+    func checkdefaultView() {
+        defaultImageSelected = true
+        customImageSelected = false
+        teamIconView.defaultIconView.iconContainerView.layer.borderColor = UIColor(named: "경고")?.cgColor
+        teamIconView.addPhotoView.iconContainerView.layer.borderColor = UIColor(named: "서브 텍스트 1")?.cgColor
+    }
     
-    func openGalleryAction(_ action: UIAlertAction) { }
+    func checkIconView() {
+        defaultImageSelected = true
+        customImageSelected = false
+        teamIconView.defaultIconView.iconContainerView.layer.borderColor = UIColor(named: "서브 텍스트 1")?.cgColor
+        teamIconView.addPhotoView.iconContainerView.layer.borderColor = UIColor(named: "경고")?.cgColor
+    }
+    
+    func openCameraAction(_ action: UIAlertAction) { 
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            didTabselectButtuon()
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.modalPresentationStyle = .currentContext
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("카메라에 접근할 수 없습니다.")
+            }
+    }
+    
+    func openGalleryAction(_ action: UIAlertAction) { 
+        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+                didTabselectButtuon()
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.modalPresentationStyle = .currentContext
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                print("앨범에 접근할 수 없습니다.")
+            }
+    }
+    
+    func completeButtonTapped() {
+        guard let teamName = teamNameTextField.placeHolder else {
+            return
+        }
+        var teamImage: UIImage?
+        if defaultImageSelected {
+            teamImage = teamIconView.defaultIconView.imageName
+        } else if customImageSelected {
+            teamImage = teamIconView.addPhotoView.imageName
+        } else {
+            return
+        }
+        
+//        TeamViewController.stringArr.insert(teamName, at: 0)
+//        
+//        TeamViewController.layoutView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+    }
+}
+
+extension NewTeamViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            teamIconView.addPhotoView.addIconView.isHidden = false
+            teamIconView.addPhotoView.iconView.isHidden = true
+            teamIconView.addPhotoView.addIconView.image = image
+            teamIconView.addPhotoView.text = "커스텀1"
+            self.doneAdded = true
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

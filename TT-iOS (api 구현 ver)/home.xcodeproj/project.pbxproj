@@ -2057,7 +2057,7 @@
 				CODE_SIGN_ENTITLEMENTS = home/home.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XVTBTTTFN;
+				DEVELOPMENT_TEAM = Y63SPPWMGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = home/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2087,7 +2087,7 @@
 				CODE_SIGN_ENTITLEMENTS = home/home.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XVTBTTTFN;
+				DEVELOPMENT_TEAM = Y63SPPWMGC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = home/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

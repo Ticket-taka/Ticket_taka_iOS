@@ -81,7 +81,6 @@ final class ProjectCreateViewController: BaseViewController {
     private lazy var projectDescriptionTextField: TextField = {
         let view = TextField()
         view.placeHolder = "프로젝트 설명"
-        
         return view
     }()
     
@@ -179,8 +178,6 @@ extension ProjectCreateViewController : UIImagePickerControllerDelegate, UINavig
         }
         
         picker.dismiss(animated: true, completion: nil)
-        
-        
     }
     
     
